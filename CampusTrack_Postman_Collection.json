@@ -1,0 +1,133 @@
+{
+  "info": {
+    "name": "CampusTrack Student Management System API",
+    "_postman_id": "c1f7a4d2-7b89-4b3f-91a0-campustrack01",
+    "description": "Postman Collection for CampusTrack REST API endpoints (Spring Boot 3 + MySQL)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Add New Student (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Sarah Connor\",\n  \"email\": \"sarah.connor@campus.edu\",\n  \"course\": \"Computer Science\",\n  \"age\": 21\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "students"]
+        },
+        "description": "Endpoint 1: Create a new student. Expected status: 201 CREATED."
+      }
+    },
+    {
+      "name": "2. Get All Students (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/students",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "students"]
+        },
+        "description": "Endpoint 2: Retrieve all students. Expected status: 200 OK."
+      }
+    },
+    {
+      "name": "3. Get Student By ID (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/students/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "students", "1"]
+        },
+        "description": "Endpoint 3: Retrieve a specific student by ID. Expected status: 200 OK."
+      }
+    },
+    {
+      "name": "4. Update Student Details (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Sarah Connor\",\n  \"email\": \"sarah.connor@campus.edu\",\n  \"course\": \"Artificial Intelligence\",\n  \"age\": 22\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/students/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "students", "1"]
+        },
+        "description": "Endpoint 4: Update student details by ID. Expected status: 200 OK."
+      }
+    },
+    {
+      "name": "5. Delete Student (DELETE)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/students/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "students", "1"]
+        },
+        "description": "Endpoint 5: Delete student by ID. Expected status: 204 NO CONTENT."
+      }
+    },
+    {
+      "name": "6. Filter Students By Course (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/students/course/Computer Science",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "students", "course", "Computer Science"]
+        },
+        "description": "Endpoint 6: Retrieve all students enrolled in a particular course. Expected status: 200 OK."
+      }
+    },
+    {
+      "name": "7. Error Handling - Student Not Found (GET 404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/students/9999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "students", "9999"]
+        },
+        "description": "Test 404 NOT FOUND status and StudentNotFoundException handler response."
+      }
+    }
+  ]
+}

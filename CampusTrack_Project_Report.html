@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CampusTrack Project Report - Raj Krishna (24BCS12277)</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 14mm 18mm 14mm;
+    @bottom-right {
+      content: counter(page);
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+    line-height: 1.55;
+    font-size: 11pt;
+  }
+
+  .page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  /* Cover Page */
+  .cover-page {
+    height: 100vh;
+    min-height: 980px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    border: 3px double #0d9488;
+    border-radius: 8px;
+    position: relative;
+    page-break-after: always;
+  }
+
+  .cover-header {
+    margin-top: 20px;
+  }
+
+  .univ-name {
+    font-size: 26pt;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+  }
+
+  .dept-name {
+    font-size: 14pt;
+    color: #0d9488;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    margin: 25px auto;
+    padding: 6px 18px;
+    background: #f0fdfa;
+    border: 1px solid #ccfbf1;
+    color: #0f766e;
+    font-weight: 700;
+    font-size: 11pt;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .cover-title-area {
+    margin: 30px 0;
+  }
+
+  .project-title {
+    font-size: 32pt;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .project-title span {
+    color: #0d9488;
+  }
+
+  .project-subtitle {
+    font-size: 15pt;
+    color: #475569;
+    font-weight: 500;
+  }
+
+  .cover-details-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px 36px;
+    width: 90%;
+    max-width: 580px;
+    text-align: left;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  }
+
+  .cover-details-card h4 {
+    font-size: 12pt;
+    color: #0f172a;
+    margin-bottom: 14px;
+    border-bottom: 2px solid #0d9488;
+    padding-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 11pt;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+
+  .detail-row:last-child {
+    border-bottom: none;
+  }
+
+  .detail-label {
+    font-weight: 600;
+    color: #475569;
+  }
+
+  .detail-val {
+    font-weight: 700;
+    color: #0f172a;
+    text-align: right;
+  }
+
+  .cover-footer {
+    margin-bottom: 15px;
+    font-size: 10pt;
+    color: #64748b;
+  }
+
+  /* Headings */
+  h1, h2, h3, h4 {
+    color: #0f172a;
+    font-weight: 800;
+  }
+
+  h1.section-title {
+    font-size: 20pt;
+    border-bottom: 3px solid #0d9488;
+    padding-bottom: 8px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  h2.subsection-title {
+    font-size: 14pt;
+    color: #0f766e;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    border-left: 4px solid #0d9488;
+    padding-left: 10px;
+  }
+
+  p {
+    margin-bottom: 12px;
+    text-align: justify;
+    line-height: 1.6;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 10pt;
+  }
+
+  th {
+    background-color: #0f172a;
+    color: #ffffff;
+    font-weight: 700;
+    text-align: left;
+    padding: 10px 12px;
+    border: 1px solid #1e293b;
+  }
+
+  td {
+    padding: 9px 12px;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  /* Code Containers */
+  .code-file-container {
+    margin: 16px 0 24px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+
+  .code-file-header {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 8px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Consolas, monospace;
+    font-size: 9.5pt;
+    border-bottom: 2px solid #0d9488;
+  }
+
+  .code-file-badge {
+    background: #0d9488;
+    color: #ffffff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  pre.code-block {
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 8.5pt;
+    line-height: 1.42;
+    padding: 12px 14px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    border-left: 3px solid #0d9488;
+  }
+
+  /* Callouts & Cards */
+  .info-card {
+    background: #f0fdfa;
+    border-left: 4px solid #0d9488;
+    padding: 12px 16px;
+    margin: 14px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 10pt;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .tech-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+
+  .tech-box strong {
+    color: #0f766e;
+    font-size: 10.5pt;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Status Badges */
+  .badge-success {
+    background: #dcfce7;
+    color: #15803d;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 8pt;
+  }
+
+  .badge-blue {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 8pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= COVER PAGE ================= -->
+<div class="cover-page">
+  <div class="cover-header">
+    <div class="univ-name">Chandigarh University</div>
+    <div class="dept-name">Department of Computer Science & Engineering</div>
+    <div class="cover-badge">Academic Project Report • 2026 – 2027</div>
+  </div>
+
+  <div class="cover-title-area">
+    <h1 class="project-title">Campus<span>Track</span></h1>
+    <p class="project-subtitle">Full-Stack Student Management System</p>
+    <p style="color: #64748b; font-size: 11pt; margin-top: 8px;">
+      Architecture, RESTful APIs, Database Design & Complete Source Code
+    </p>
+  </div>
+
+  <div class="cover-details-card">
+    <h4>Student & Submission Details</h4>
+    <div class="detail-row">
+      <span class="detail-label">Student Name:</span>
+      <span class="detail-val">Raj Krishna</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">UID / Roll No:</span>
+      <span class="detail-val">24BCS12277</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Course & Branch:</span>
+      <span class="detail-val">B.E. Computer Science & Engineering (CSE)</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Section:</span>
+      <span class="detail-val">KRG-617A</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">University:</span>
+      <span class="detail-val">Chandigarh University</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Technology Stack:</span>
+      <span class="detail-val">Java 17, Spring Boot 3, MySQL, React.js, Vite</span>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    Chandigarh University (Gharuan, Mohali, Punjab) • Bachelor of Engineering in CSE
+  </div>
+</div>
+
+<!-- ================= TABLE OF CONTENTS ================= -->
+<h1 class="section-title">Table of Contents</h1>
+<table>
+  <thead>
+    <tr>
+      <th style="width: 10%;">#</th>
+      <th>Section Title</th>
+      <th style="width: 25%;">Target Domain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1.0</td><td><strong>Project Overview & Problem Statement</strong></td><td>Academic Requirements</td></tr>
+    <tr><td>2.0</td><td><strong>System Architecture & Technology Stack</strong></td><td>Architectural Design</td></tr>
+    <tr><td>3.0</td><td><strong>Database Design & Configuration</strong></td><td>MySQL 8.0 & Hibernate</td></tr>
+    <tr><td>4.0</td><td><strong>REST API Endpoints Specification</strong></td><td>Spring Boot Web Services</td></tr>
+    <tr><td>5.0</td><td><strong>Complete Backend Source Code</strong></td><td>Java 17 Source Files</td></tr>
+    <tr><td>6.0</td><td><strong>Complete Frontend Source Code</strong></td><td>React 18 & Vite Components</td></tr>
+    <tr><td>7.0</td><td><strong>API Testing, Verification & Postman Output</strong></td><td>Experimental Evaluation</td></tr>
+    <tr><td>8.0</td><td><strong>Project Execution Commands & Conclusion</strong></td><td>Deployment & Summary</td></tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ================= SECTION 1 ================= -->
+<h1 class="section-title">1.0 Problem Statement & Project Overview</h1>
+
+<h2 class="subsection-title">1.1 Background</h2>
+<p>
+In academic institutions, managing student records manually or using fragmented spreadsheets leads to critical data redundancies, record inaccuracies, and sluggish response times during administrative auditing. Existing legacy systems are often heavy, bloated, and difficult for students and faculty to operate effectively during standard departmental inquiries.
+</p>
+
+<h2 class="subsection-title">1.2 Problem Statement</h2>
+<p>
+Educational administrators require a lightweight, robust, and intuitive <strong>Student Management System</strong> capable of performing core student records management with sub-second response times. The system must support atomic database transactions, course-specific record isolation, dynamic multi-attribute searching, full CRUD lifecycle management, and clear, structured REST APIs with consistent JSON status responses.
+</p>
+
+<h2 class="subsection-title">1.3 Proposed Solution – CampusTrack</h2>
+<p>
+<strong>CampusTrack</strong> is an end-to-end full-stack web application designed to streamline student administrative workflows. Engineered using modern best practices, CampusTrack separates frontend visual presentation from backend business logic via standard REST protocols:
+</p>
+<ul style="margin-left: 24px; margin-bottom: 14px;">
+  <li><strong>Spring Boot 3 REST API:</strong> High-performance Java 17 backend providing transactional operations, repository abstractions via Spring Data JPA, and centralized exception handling.</li>
+  <li><strong>MySQL Database:</strong> Relational persistent storage providing structured schema integrity with primary keys and unique email indexing.</li>
+  <li><strong>React.js + Vite Frontend:</strong> Modern campus-inspired UI themed with Deep Navy and Teal, featuring live metrics, search filtering, and modal forms.</li>
+</ul>
+
+<!-- ================= SECTION 2 ================= -->
+<h1 class="section-title">2.0 System Architecture & Technology Stack</h1>
+
+<h2 class="subsection-title">2.1 Layered Architecture Pattern</h2>
+<p>
+CampusTrack strictly adheres to the standard <strong>3-Tier Layered Architecture Pattern</strong> to guarantee separation of concerns, testability, and code readability during viva demonstrations:
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>Package / Component</th>
+      <th>Responsibility</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Presentation Layer</strong></td>
+      <td>React.js + Vite (`campustrack-frontend`)</td>
+      <td>Interactive UI, state coordination, real-time filtering, responsive cards, modal dialogues.</td>
+    </tr>
+    <tr>
+      <td><strong>Controller Layer</strong></td>
+      <td>`com.campustrack.controller`</td>
+      <td>Exposes REST API endpoints, handles HTTP status codes, deserializes JSON, cross-origin mapping.</td>
+    </tr>
+    <tr>
+      <td><strong>Service Layer</strong></td>
+      <td>`com.campustrack.service`</td>
+      <td>Executes core business rules, field validations, exception throwing (`StudentNotFoundException`).</td>
+    </tr>
+    <tr>
+      <td><strong>Data Access Layer</strong></td>
+      <td>`com.campustrack.repository`</td>
+      <td>Spring Data `JpaRepository` mapping domain entities directly to SQL tables via Hibernate.</td>
+    </tr>
+    <tr>
+      <td><strong>Database Layer</strong></td>
+      <td>MySQL 8.0 Server</td>
+      <td>Persistent relational tables, unique constraints, and ACID transactions.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="subsection-title">2.2 Technology Stack Breakdown</h2>
+<div class="tech-grid">
+  <div class="tech-box">
+    <strong>Backend: Java 17 + Spring Boot 3.2.5</strong>
+    Provides Spring Web, Spring Data JPA, Hibernate ORM, and embedded Apache Tomcat.
+  </div>
+  <div class="tech-box">
+    <strong>Database: MySQL 8.0</strong>
+    Relational DBMS connected via `mysql-connector-j` driver on default port 3306.
+  </div>
+  <div class="tech-box">
+    <strong>Frontend: React.js (v18) + Vite (v5)</strong>
+    Lightning-fast module bundler with custom Navy & Teal CSS design tokens and Lucide React icons.
+  </div>
+  <div class="tech-box">
+    <strong>Testing: Postman & cURL</strong>
+    Comprehensive test payloads validating all 6 HTTP CRUD endpoints and error scenarios.
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ================= SECTION 3 ================= -->
+<h1 class="section-title">3.0 Database Design & Configuration</h1>
+
+<h2 class="subsection-title">3.1 Relational Schema (`students` table)</h2>
+<p>
+The MySQL relational schema is automatically generated and updated on application startup by Hibernate DDL (`ddl-auto=update`). The table definition maintains strict column constraints:
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column Name</th>
+      <th>Data Type</th>
+      <th>Constraints</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`id`</td>
+      <td>BIGINT (Long)</td>
+      <td>PRIMARY KEY, AUTO_INCREMENT</td>
+      <td>Unique surrogate identifier for each enrolled student.</td>
+    </tr>
+    <tr>
+      <td>`name`</td>
+      <td>VARCHAR(255)</td>
+      <td>NOT NULL</td>
+      <td>Full name of the student.</td>
+    </tr>
+    <tr>
+      <td>`email`</td>
+      <td>VARCHAR(255)</td>
+      <td>NOT NULL, UNIQUE</td>
+      <td>Academic/personal email address with unique constraint.</td>
+    </tr>
+    <tr>
+      <td>`course`</td>
+      <td>VARCHAR(255)</td>
+      <td>NOT NULL</td>
+      <td>Degree or academic department (e.g., Computer Science).</td>
+    </tr>
+    <tr>
+      <td>`age`</td>
+      <td>INT (Integer)</td>
+      <td>NOT NULL</td>
+      <td>Age of the student (positive integer).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="subsection-title">3.2 Backend Database Configuration (`application.properties`)</h2>
+<p>
+Credentials are configured with dynamic environment variable fallback placeholders so that no plain credentials are hardcoded into compiled Java bytecode:
+</p>
+
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>campustrack-backend/src/main/resources/application.properties</span>
+    <span class="code-file-badge">Configuration</span>
+  </div>
+  <pre class="code-block"># Server Port Configuration
+server.port=8080
+spring.application.name=campustrack-backend
+
+# MySQL Database Configuration
+# Automatically creates database 'campustrack_db' if it does not already exist
+spring.datasource.url=jdbc:mysql://localhost:3306/campustrack_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# MySQL Credentials with default fallback
+spring.datasource.username=${DB_USERNAME:root}
+spring.datasource.password=${DB_PASSWORD:123456789}
+
+# Spring Data JPA / Hibernate Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect</pre>
+</div>
+
+<!-- ================= SECTION 4 ================= -->
+<h1 class="section-title">4.0 REST API Endpoints Specification</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Endpoint #</th>
+      <th>HTTP Verb</th>
+      <th>URI Path</th>
+      <th>Description</th>
+      <th>Status Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Endpoint 1</td>
+      <td><span class="badge-blue">POST</span></td>
+      <td>`/api/students`</td>
+      <td>Add a new student to the database</td>
+      <td>`201 CREATED`</td>
+    </tr>
+    <tr>
+      <td>Endpoint 2</td>
+      <td><span class="badge-blue">GET</span></td>
+      <td>`/api/students`</td>
+      <td>Retrieve all enrolled students</td>
+      <td>`200 OK`</td>
+    </tr>
+    <tr>
+      <td>Endpoint 3</td>
+      <td><span class="badge-blue">GET</span></td>
+      <td>`/api/students/{id}`</td>
+      <td>Retrieve a specific student by ID</td>
+      <td>`200 OK` / `404`</td>
+    </tr>
+    <tr>
+      <td>Endpoint 4</td>
+      <td><span class="badge-blue">PUT</span></td>
+      <td>`/api/students/{id}`</td>
+      <td>Update existing student records</td>
+      <td>`200 OK` / `404`</td>
+    </tr>
+    <tr>
+      <td>Endpoint 5</td>
+      <td><span class="badge-blue">DELETE</span></td>
+      <td>`/api/students/{id}`</td>
+      <td>Delete a student record by ID</td>
+      <td>`204 NO CONTENT`</td>
+    </tr>
+    <tr>
+      <td>Endpoint 6</td>
+      <td><span class="badge-blue">GET</span></td>
+      <td>`/api/students/course/{course}`</td>
+      <td>Filter all students by course name</td>
+      <td>`200 OK`</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ================= SECTION 5 ================= -->
+<h1 class="section-title">5.0 Complete Backend Source Code</h1>
+<p>
+The backend implementation is broken down file-by-file with clean comments, package imports, and JPA annotations.
+</p>
+
+<!-- File 1: Student.java -->
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>File 1: com/campustrack/entity/Student.java</span>
+    <span class="code-file-badge">Entity</span>
+  </div>
+  <pre class="code-block">package com.campustrack.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+/**
+ * Student Entity representing the 'students' table in MySQL database.
+ */
+@Entity
+@Table(name = "students")
+public class Student {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
+
+    @Column(name = "course", nullable = false)
+    private String course;
+
+    @Column(name = "age", nullable = false)
+    private Integer age;
+
+    // Default No-argument Constructor required by JPA
+    public Student() {
+    }
+
+    // Parameterized Constructor
+    public Student(String name, String email, String course, Integer age) {
+        this.name = name;
+        this.email = email;
+        this.course = course;
+        this.age = age;
+    }
+
+    // Full Constructor
+    public Student(Long id, String name, String email, String course, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.course = course;
+        this.age = age;
+    }
+
+    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getCourse() { return course; }
+    public void setCourse(String course) { this.course = course; }
+
+    public Integer getAge() { return age; }
+    public void setAge(Integer age) { this.age = age; }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", course='" + course + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}</pre>
+</div>
+
+<!-- File 2: StudentRepository.java -->
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>File 2: com/campustrack/repository/StudentRepository.java</span>
+    <span class="code-file-badge">Repository</span>
+  </div>
+  <pre class="code-block">package com.campustrack.repository;
+
+import com.campustrack.entity.Student;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+/**
+ * Repository interface for Student entity providing CRUD and custom query operations.
+ */
+@Repository
+public interface StudentRepository extends JpaRepository&lt;Student, Long&gt; {
+
+    /**
+     * Find all students by course name (case-insensitive for better usability).
+     */
+    List&lt;Student&gt; findByCourseIgnoreCase(String course);
+}</pre>
+</div>
+
+<div class="page-break"></div>
+
+<!-- File 3: StudentService.java -->
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>File 3: com/campustrack/service/StudentService.java</span>
+    <span class="code-file-badge">Service Interface</span>
+  </div>
+  <pre class="code-block">package com.campustrack.service;
+
+import com.campustrack.entity.Student;
+import java.util.List;
+
+/**
+ * Service interface defining business logic operations for Students.
+ */
+public interface StudentService {
+
+    Student addStudent(Student student);
+
+    List&lt;Student&gt; getAllStudents();
+
+    Student getStudentById(Long id);
+
+    Student updateStudent(Long id, Student studentDetails);
+
+    void deleteStudent(Long id);
+
+    List&lt;Student&gt; getStudentsByCourse(String course);
+}</pre>
+</div>
+
+<!-- File 4: StudentServiceImpl.java -->
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>File 4: com/campustrack/service/StudentServiceImpl.java</span>
+    <span class="code-file-badge">Service Implementation</span>
+  </div>
+  <pre class="code-block">package com.campustrack.service;
+
+import com.campustrack.entity.Student;
+import com.campustrack.exception.StudentNotFoundException;
+import com.campustrack.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * Service implementation for Student business logic.
+ */
+@Service
+public class StudentServiceImpl implements StudentService {
+
+    private final StudentRepository studentRepository;
+
+    @Autowired
+    public StudentServiceImpl(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
+    @Override
+    public Student addStudent(Student student) {
+        if (student.getName() == null || student.getName().trim().isEmpty()) {
+            throw new IllegalArgumentException("Student name cannot be empty.");
+        }
+        if (student.getEmail() == null || student.getEmail().trim().isEmpty()) {
+            throw new IllegalArgumentException("Student email cannot be empty.");
+        }
+        if (student.getCourse() == null || student.getCourse().trim().isEmpty()) {
+            throw new IllegalArgumentException("Student course cannot be empty.");
+        }
+        if (student.getAge() == null || student.getAge() &lt;= 0) {
+            throw new IllegalArgumentException("Student age must be greater than 0.");
+        }
+
+        return studentRepository.save(student);
+    }
+
+    @Override
+    public List&lt;Student&gt; getAllStudents() {
+        return studentRepository.findAll();
+    }
+
+    @Override
+    public Student getStudentById(Long id) {
+        return studentRepository.findById(id)
+                .orElseThrow(() -> new StudentNotFoundException(id));
+    }
+
+    @Override
+    public Student updateStudent(Long id, Student studentDetails) {
+        Student existingStudent = studentRepository.findById(id)
+                .orElseThrow(() -> new StudentNotFoundException(id));
+
+        if (studentDetails.getName() != null &amp;&amp; !studentDetails.getName().trim().isEmpty()) {
+            existingStudent.setName(studentDetails.getName());
+        }
+        if (studentDetails.getEmail() != null &amp;&amp; !studentDetails.getEmail().trim().isEmpty()) {
+            existingStudent.setEmail(studentDetails.getEmail());
+        }
+        if (studentDetails.getCourse() != null &amp;&amp; !studentDetails.getCourse().trim().isEmpty()) {
+            existingStudent.setCourse(studentDetails.getCourse());
+        }
+        if (studentDetails.getAge() != null &amp;&amp; studentDetails.getAge() &gt; 0) {
+            existingStudent.setAge(studentDetails.getAge());
+        }
+
+        return studentRepository.save(existingStudent);
+    }
+
+    @Override
+    public void deleteStudent(Long id) {
+        Student existingStudent = studentRepository.findById(id)
+                .orElseThrow(() -> new StudentNotFoundException(id));
+        studentRepository.delete(existingStudent);
+    }
+
+    @Override
+    public List&lt;Student&gt; getStudentsByCourse(String course) {
+        return studentRepository.findByCourseIgnoreCase(course);
+    }
+}</pre>
+</div>
+
+<div class="page-break"></div>
+
+<!-- File 5: StudentController.java -->
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>File 5: com/campustrack/controller/StudentController.java</span>
+    <span class="code-file-badge">REST Controller</span>
+  </div>
+  <pre class="code-block">package com.campustrack.controller;
+
+import com.campustrack.entity.Student;
+import com.campustrack.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+/**
+ * REST Controller exposing CRUD and course filtering endpoints for Students.
+ * Base Path: /api/students
+ */
+@RestController
+@RequestMapping("/api/students")
+@CrossOrigin(origins = "*") // Allows React frontend to communicate with backend
+public class StudentController {
+
+    private final StudentService studentService;
+
+    @Autowired
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
+
+    // Endpoint 1: Add a new student
+    @PostMapping
+    public ResponseEntity&lt;Student&gt; createStudent(@RequestBody Student student) {
+        Student createdStudent = studentService.addStudent(student);
+        return new ResponseEntity&lt;&gt;(createdStudent, HttpStatus.CREATED);
+    }
+
+    // Endpoint 2: Retrieve all students
+    @GetMapping
+    public ResponseEntity&lt;List&lt;Student&gt;&gt; getAllStudents() {
+        List&lt;Student&gt; students = studentService.getAllStudents();
+        return ResponseEntity.ok(students);
+    }
+
+    // Endpoint 3: Retrieve a student by ID
+    @GetMapping("/{id}")
+    public ResponseEntity&lt;Student&gt; getStudentById(@PathVariable Long id) {
+        Student student = studentService.getStudentById(id);
+        return ResponseEntity.ok(student);
+    }
+
+    // Endpoint 4: Update student details
+    @PutMapping("/{id}")
+    public ResponseEntity&lt;Student&gt; updateStudent(
+            @PathVariable Long id,
+            @RequestBody Student studentDetails) {
+        Student updatedStudent = studentService.updateStudent(id, studentDetails);
+        return ResponseEntity.ok(updatedStudent);
+    }
+
+    // Endpoint 5: Delete a student by ID
+    @DeleteMapping("/{id}")
+    public ResponseEntity&lt;Void&gt; deleteStudent(@PathVariable Long id) {
+        studentService.deleteStudent(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    // Endpoint 6: Retrieve students enrolled in a particular course
+    @GetMapping("/course/{course}")
+    public ResponseEntity&lt;List&lt;Student&gt;&gt; getStudentsByCourse(@PathVariable String course) {
+        List&lt;Student&gt; students = studentService.getStudentsByCourse(course);
+        return ResponseEntity.ok(students);
+    }
+}</pre>
+</div>
+
+<!-- File 6: StudentNotFoundException.java -->
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>File 6: com/campustrack/exception/StudentNotFoundException.java</span>
+    <span class="code-file-badge">Exception</span>
+  </div>
+  <pre class="code-block">package com.campustrack.exception;
+
+/**
+ * Custom runtime exception thrown when a student with a specific ID is not found.
+ */
+public class StudentNotFoundException extends RuntimeException {
+
+    public StudentNotFoundException(String message) {
+        super(message);
+    }
+
+    public StudentNotFoundException(Long id) {
+        super("Student not found with ID: " + id);
+    }
+}</pre>
+</div>
+
+<div class="page-break"></div>
+
+<!-- File 7: ErrorResponse.java & GlobalExceptionHandler.java -->
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>File 7: com/campustrack/exception/ErrorResponse.java</span>
+    <span class="code-file-badge">Error DTO</span>
+  </div>
+  <pre class="code-block">package com.campustrack.exception;
+
+import java.time.LocalDateTime;
+
+public class ErrorResponse {
+    private LocalDateTime timestamp;
+    private int status;
+    private String error;
+    private String message;
+    private String path;
+
+    public ErrorResponse() { this.timestamp = LocalDateTime.now(); }
+
+    public ErrorResponse(int status, String error, String message, String path) {
+        this.timestamp = LocalDateTime.now();
+        this.status = status;
+        this.error = error;
+        this.message = message;
+        this.path = path;
+    }
+
+    public LocalDateTime getTimestamp() { return timestamp; }
+    public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
+    public int getStatus() { return status; }
+    public void setStatus(int status) { this.status = status; }
+    public String getError() { return error; }
+    public void setError(String error) { this.error = error; }
+    public String getMessage() { return message; }
+    public void setMessage(String message) { this.message = message; }
+    public String getPath() { return path; }
+    public void setPath(String path) { this.path = path; }
+}</pre>
+</div>
+
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>File 8: com/campustrack/exception/GlobalExceptionHandler.java</span>
+    <span class="code-file-badge">Controller Advice</span>
+  </div>
+  <pre class="code-block">package com.campustrack.exception;
+
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(StudentNotFoundException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleStudentNotFound(
+            StudentNotFoundException ex, HttpServletRequest request) {
+        ErrorResponse error = new ErrorResponse(
+                HttpStatus.NOT_FOUND.value(),
+                HttpStatus.NOT_FOUND.getReasonPhrase(),
+                ex.getMessage(),
+                request.getRequestURI()
+        );
+        return new ResponseEntity&lt;&gt;(error, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleIllegalArgument(
+            IllegalArgumentException ex, HttpServletRequest request) {
+        ErrorResponse error = new ErrorResponse(
+                HttpStatus.BAD_REQUEST.value(),
+                HttpStatus.BAD_REQUEST.getReasonPhrase(),
+                ex.getMessage(),
+                request.getRequestURI()
+        );
+        return new ResponseEntity&lt;&gt;(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity&lt;ErrorResponse&gt; handleGeneralException(
+            Exception ex, HttpServletRequest request) {
+        ErrorResponse error = new ErrorResponse(
+                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(),
+                ex.getMessage(),
+                request.getRequestURI()
+        );
+        return new ResponseEntity&lt;&gt;(error, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}</pre>
+</div>
+
+<!-- File 9: CampusTrackApplication.java -->
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>File 9: com/campustrack/CampusTrackApplication.java</span>
+    <span class="code-file-badge">Main Entry</span>
+  </div>
+  <pre class="code-block">package com.campustrack;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CampusTrackApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(CampusTrackApplication.class, args);
+    }
+}</pre>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ================= SECTION 6 ================= -->
+<h1 class="section-title">6.0 Complete Frontend Source Code</h1>
+
+<!-- File 10: studentService.js -->
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>File 10: campustrack-frontend/src/services/studentService.js</span>
+    <span class="code-file-badge">REST API Client</span>
+  </div>
+  <pre class="code-block">const BASE_URL = 'http://localhost:8080/api/students';
+
+export const studentService = {
+  // 1. GET /api/students
+  async getAllStudents() {
+    const response = await fetch(BASE_URL);
+    if (!response.ok) throw new Error(`Failed to fetch students (Status ${response.status})`);
+    return response.json();
+  },
+
+  // 2. GET /api/students/{id}
+  async getStudentById(id) {
+    const response = await fetch(`${BASE_URL}/${id}`);
+    if (!response.ok) throw new Error(`Student with ID ${id} not found`);
+    return response.json();
+  },
+
+  // 3. POST /api/students
+  async addStudent(studentData) {
+    const response = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(studentData),
+    });
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.message || 'Failed to add student');
+    }
+    return response.json();
+  },
+
+  // 4. PUT /api/students/{id}
+  async updateStudent(id, studentData) {
+    const response = await fetch(`${BASE_URL}/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(studentData),
+    });
+    if (!response.ok) throw new Error(`Failed to update student ID ${id}`);
+    return response.json();
+  },
+
+  // 5. DELETE /api/students/{id}
+  async deleteStudent(id) {
+    const response = await fetch(`${BASE_URL}/${id}`, { method: 'DELETE' });
+    if (!response.ok &amp;&amp; response.status !== 204) throw new Error(`Failed to delete student ID ${id}`);
+    return true;
+  },
+
+  // 6. GET /api/students/course/{course}
+  async getStudentsByCourse(course) {
+    const encodedCourse = encodeURIComponent(course);
+    const response = await fetch(`${BASE_URL}/course/${encodedCourse}`);
+    if (!response.ok) throw new Error(`Failed to filter by course ${course}`);
+    return response.json();
+  },
+};</pre>
+</div>
+
+<!-- File 11: App.jsx -->
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>File 11: campustrack-frontend/src/App.jsx (Excerpt: State & Endpoints Coordination)</span>
+    <span class="code-file-badge">React Component</span>
+  </div>
+  <pre class="code-block">import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import Navbar from './components/Navbar';
+import StatsCards from './components/StatsCards';
+import StudentTable from './components/StudentTable';
+import StudentModal from './components/StudentModal';
+import ConfirmModal from './components/ConfirmModal';
+import Toast from './components/Toast';
+import { studentService } from './services/studentService';
+
+export default function App() {
+  const [students, setStudents] = useState([]);
+  const [allStudentsCache, setAllStudentsCache] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCourse, setSelectedCourse] = useState('');
+
+  // Modals state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [studentToEdit, setStudentToEdit] = useState(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [studentToDelete, setStudentToDelete] = useState(null);
+  const [toasts, setToasts] = useState([]);
+
+  const fetchStudents = useCallback(async () => {
+    setIsLoading(true);
+    try {
+      const data = await studentService.getAllStudents();
+      setStudents(data);
+      setAllStudentsCache(data);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  // Filter students by Course via Backend (Endpoint 6)
+  const handleCourseFilterChange = async (course) => {
+    setSelectedCourse(course);
+    setIsLoading(true);
+    try {
+      if (!course) {
+        const data = await studentService.getAllStudents();
+        setStudents(data);
+      } else {
+        const data = await studentService.getStudentsByCourse(course);
+        setStudents(data);
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => { fetchStudents(); }, [fetchStudents]);
+
+  // CRUD actions connecting Endpoints 1, 4, 5...
+  // Render JSX: Navbar, StatsCards, Toolbar, StudentTable, Modals, Toast, Footer
+  return (
+    &lt;div className="app-container"&gt;
+      &lt;Navbar backendConnected={true} /&gt;
+      &lt;main className="main-content"&gt;
+        &lt;StatsCards students={allStudentsCache} availableCourses={[]} /&gt;
+        &lt;StudentTable students={students} isLoading={isLoading} /&gt;
+      &lt;/main&gt;
+    &lt;/div&gt;
+  );
+}</pre>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ================= SECTION 7 ================= -->
+<h1 class="section-title">7.0 API Testing, Verification & Postman Output</h1>
+
+<h2 class="subsection-title">7.1 Automated Endpoint Verification Results</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Endpoint & Method</th>
+      <th>Payload / Parameter</th>
+      <th>Observed Status</th>
+      <th>Verification Verdict</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>TC-01</strong></td>
+      <td>POST `/api/students`</td>
+      <td>`{"name":"Sarah Connor", "email":"sarah@campus.edu", ...}`</td>
+      <td>`201 CREATED`</td>
+      <td><span class="badge-success">PASSED</span></td>
+    </tr>
+    <tr>
+      <td><strong>TC-02</strong></td>
+      <td>GET `/api/students`</td>
+      <td>Retrieve Roster</td>
+      <td>`200 OK`</td>
+      <td><span class="badge-success">PASSED</span></td>
+    </tr>
+    <tr>
+      <td><strong>TC-03</strong></td>
+      <td>GET `/api/students/1`</td>
+      <td>Path variable `id=1`</td>
+      <td>`200 OK`</td>
+      <td><span class="badge-success">PASSED</span></td>
+    </tr>
+    <tr>
+      <td><strong>TC-04</strong></td>
+      <td>PUT `/api/students/1`</td>
+      <td>`{"course":"Artificial Intelligence", "age":22}`</td>
+      <td>`200 OK`</td>
+      <td><span class="badge-success">PASSED</span></td>
+    </tr>
+    <tr>
+      <td><strong>TC-05</strong></td>
+      <td>DELETE `/api/students/3`</td>
+      <td>Path variable `id=3`</td>
+      <td>`204 NO CONTENT`</td>
+      <td><span class="badge-success">PASSED</span></td>
+    </tr>
+    <tr>
+      <td><strong>TC-06</strong></td>
+      <td>GET `/api/students/course/Data Science`</td>
+      <td>Path variable `course=Data Science`</td>
+      <td>`200 OK`</td>
+      <td><span class="badge-success">PASSED</span></td>
+    </tr>
+    <tr>
+      <td><strong>TC-07</strong></td>
+      <td>GET `/api/students/9999`</td>
+      <td>Non-existent record test</td>
+      <td>`404 NOT FOUND`</td>
+      <td><span class="badge-success">PASSED</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="subsection-title">7.2 Sample Response Payloads</h2>
+
+<div class="code-file-container">
+  <div class="code-file-header">
+    <span>Sample Output: 404 NOT FOUND (`StudentNotFoundException`)</span>
+    <span class="code-file-badge">JSON Response</span>
+  </div>
+  <pre class="code-block">HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+  "timestamp": "2026-11-13T21:54:18.6304645",
+  "status": 404,
+  "error": "Not Found",
+  "message": "Student not found with ID: 9999",
+  "path": "/api/students/9999"
+}</pre>
+</div>
+
+<!-- ================= SECTION 8 ================= -->
+<h1 class="section-title">8.0 Execution Guide & Conclusion</h1>
+
+<h2 class="subsection-title">8.1 Exact Run Commands</h2>
+<div class="tech-grid">
+  <div class="tech-box">
+    <strong>Backend Startup (Terminal 1)</strong>
+    <pre style="margin-top:6px; font-size:8.5pt;">cd campustrack-backend
+.\mvnw.cmd spring-boot:run</pre>
+    <span style="font-size:8pt; color:#64748b;">Runs on http://localhost:8080</span>
+  </div>
+  <div class="tech-box">
+    <strong>Frontend Startup (Terminal 2)</strong>
+    <pre style="margin-top:6px; font-size:8.5pt;">cd campustrack-frontend
+npm install
+npm run dev</pre>
+    <span style="font-size:8pt; color:#64748b;">Runs on http://localhost:5173</span>
+  </div>
+</div>
+
+<h2 class="subsection-title">8.2 Conclusion</h2>
+<p>
+The <strong>CampusTrack Student Management System</strong> successfully fulfills all college assignment guidelines and viva objectives. The implementation guarantees ACID compliance in MySQL, type-safe persistence via Spring Data JPA, strict status code semantics across REST endpoints, and an engaging campus-inspired UI in React.js.
+</p>
+
+<div class="info-card" style="margin-top: 30px; text-align: center;">
+  <strong>Submitted By:</strong> Raj Krishna (UID: 24BCS12277) • B.E. CSE • Section: KRG-617A • Chandigarh University
+</div>
+
+</body>
+</html>
